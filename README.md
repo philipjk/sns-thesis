@@ -3,6 +3,7 @@
 This repository contains a LaTeX template for writing your PhD thesis. 
 The template aims to replicate the formatting and style of the _frontespizio_ produced by Ser.Se, the online portal for submitting theses of the Scuola Normale Superiore, Pisa, Italy.
 
+## Sample output with some additional personalizations
 ![Example Frontespizio](example_frontespizio.png)
 
 ## Features
