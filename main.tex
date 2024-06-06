@@ -1,0 +1,158 @@
+% ---- Preamble ----
+% Check if the IsDraft command is defined
+\ifdefined\IsDraft
+  \documentclass[12pt, draft, twoside]{report} % maybe choose book?
+\else
+  \documentclass[12pt, twoside]{report} % maybe choose book?
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[newlinetospace]{titlesec} % For title formatting
+\usepackage{lipsum}
+\usepackage[a4paper, width=125mm, top=45mm, bottom=45mm, bindingoffset=6mm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+% on the right for odd pages, on the left for even pages
+\fancyhead[RO,LE]{\nouppercase{\leftmark}}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{1pt}
+\setlength{\headheight}{15pt}
+
+\ifdefined\IsRoboto
+  \usepackage{roboto}
+\fi
+
+\usepackage[square]{natbib}
+\bibliographystyle{plainnat}
+\let\oldcite\cite
+\renewcommand{\cite}[1]{\citep{#1}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, % Making internal links black
+    filecolor=black, % Making file links black
+    urlcolor=blue, % Keeping URL links blue for distinction, but you can also set it to black
+    citecolor=black, % Making citation links black
+    anchorcolor=black, % Color for anchor text
+    pdfborder={0 0 0}, % Removes the border around links
+}
+
+
+\usepackage[normalem]{ulem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{bbm}
+\usepackage{bibentry}
+\usepackage{booktabs}
+\usepackage{breqn}
+\usepackage{caption}
+\usepackage{comment}
+\usepackage{diagbox}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{physics}
+\usepackage{subcaption}
+\usepackage{textcomp}
+\usepackage{thm-restate}
+\usepackage{tikz-cd}
+\usepackage{times}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{xspace}
+
+\nobibliography*
+\renewcommand{\norm}[1] { \left\Vert #1 \right\Vert }
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\prob}{\operatorname*{Pr}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand\la{\textlangle\xspace}
+\newcommand\ra{\textrangle\xspace}
+
+% ---- Document ----
+
+\begin{document}
+
+% ---- Title Page ----
+
+\begin{titlepage}
+{
+\ifdefined\IsRoboto
+\fontfamily{Roboto-TLF}\selectfont
+\fi
+    
+   \centering
+   \vspace*{-3.5cm}
+   \includegraphics[width=0.5\textwidth]{sns_logo.pdf} 
+   \par\vspace{2.5cm}
+
+   {\Large Classe di Scienze\par}
+   \vspace{0.5cm}
+   {\Large Corso di perfezionamento in\par}
+   {\Large \la nome-del-corso \ra\par}
+   \vspace{0.5cm}
+   {\Large \la numero-ciclo ciclo \ra \par}
+   \vfill
+   {\huge\bfseries \itshape \la Titolo: \ra \par}
+   {\Large\bfseries \itshape \la Sotto-titolo \ra \par}
+   \vspace{1.5cm}
+   {\Large Settore Scientifico Disciplinare \la INF/01 \ra \par} % oppure ING-INF/05 ??
+   \vfill
+   \raggedright
+   {\Large Candidato\par}
+   {\Large \la nome \ra \par}
+   \vspace{1.5cm}
+   %\vfill
+   {\large Relatore \par}
+   {\large Prof. \la nome \ra \par}
+   \vfill
+   \centering
+   {\large Anno accademico \la 2023/2024 \ra \par}
+   \vspace*{-2.5cm}
+   }
+\end{titlepage}
+
+% ---- Chapters ----
+
+\pagenumbering{roman}
+
+\chapter*{Abstract}
+\input{chapters/abstract}
+
+\listoffigures
+
+\listoftables
+
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\chapter{Introduction} \label{ch:intro}
+\input{chapters/introduction}
+
+\chapter{Conclusion} \label{ch:conclusions}
+\input{chapters/conclusion}
+
+\bibliography{bibliography}
+
+\end{document}
