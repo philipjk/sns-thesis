@@ -22,6 +22,7 @@ The template aims to replicate the formatting and style of the _frontespizio_ pr
    - For the Roboto-like font frontespizio version, run: `make roboto`.
    - For the default LaTeX template version, run: `make pdf`.
 5. Find the compiled PDF in the `output` directory.
+6. To clean up your directory, run `make clean`.
 
 ## Requirements
 - LaTeX distribution (e.g., TeX Live, MiKTeX).
